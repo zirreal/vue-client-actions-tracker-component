@@ -9,8 +9,11 @@ The tracker won't work without user's consent. If user didn't choose option acce
 
 ## Set up
 
+``` 
+  npm i vue-client-actions-tracker-component
 ```
-npm install vue-client-actions-tracker --save
+
+```
 
 import Vue from 'vue'
 
