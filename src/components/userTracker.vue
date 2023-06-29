@@ -1,5 +1,5 @@
 <template>
-    <div v-show="cookies && !cookies.get('userTracker') && !this.$store.state.userTracker.option"  class="user-tracker" :class="classCustom">
+    <div v-show="cookies && !cookies.get('userTracker') && !isChosen"  class="user-tracker" :class="classCustom">
       <div class="user-tracker__wrapper">
         <a v-if=" privacyPolicyLink" class="user-tracker__info" :href="privacyPolicyLink">i</a>
         <h3 class="user-tracker__title">
@@ -64,26 +64,25 @@ export default {
     return {
       option: 'allow metrics',
       cookies: null,
+      isChosen: false,
     }
   },
 
   methods: {
     allowUserTracker () {
+      this.isChosen = true;
       switch(this.option) {
         case 'only critical':
           VueCookies.set('userTracker', this.option);
-          this.$store.commit('SET_USER_TRACKER', {option: 'only critical', localStorage: true, cookies: true, metrics: false})
         break;
 
         case 'allow metrics':
           VueCookies.set('userTracker', this.option);
-          this.$store.commit('SET_USER_TRACKER', {option: 'allow metrics', localStorage: false, cookies: true, metrics: true})
 
         break;
 
         default: 
           VueCookies.set('userTracker', this.option);
-          this.$store.commit('SET_USER_TRACKER', {option: 'no actions', localStorage: false, cookies: false, metrics: false})
         }
     }, 
   },
@@ -96,8 +95,6 @@ export default {
         this.$emit('activateTracker');
       }
     })
-
-
   }
 
 }
