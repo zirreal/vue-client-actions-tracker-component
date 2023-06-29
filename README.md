@@ -1,5 +1,8 @@
 # vue-client-actions-tracker-component
 
+`looks something like that :)`
+![tracker-component](https://im.wampi.ru/2023/06/29/13db93f2330a1eb93.png)
+
 This is the easy-to-use vue component for web analytics tracking with user's consent.
 
 The component works with Vue 2.
@@ -18,8 +21,8 @@ The tracker won't work without user's consent. If user didn't choose option acce
 import Vue from 'vue'
 
 // tracker component
-import userTracker from 'vue-client-actions-tracker'
-import '../node_modules/vue-client-actions-tracker/dist/vue-client-actions-tracker-component.css' // for styles
+import userTracker from 'vue-client-actions-tracker-component'
+import '../node_modules/vue-client-actions-tracker-component/dist/vue-client-actions-tracker-component.css' // for styles
 
 Vue.use(userTracker) // tracker uses vue-cookies plugin and by default cookies expiration date set to 90 days.
 
